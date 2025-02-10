@@ -1,9 +1,21 @@
-print('\nMISSÃO 01: Verifica aprovação do aluno.\nMISSÃO 02: Verifica situação eleitoral do aluno.\nMISSÃO 03: Verificação da classificação da nota dos alunos.\nMISSÃO 04: Verifica soma de números.\nMISSÃO 05: Verifica acesso ao cofre.\nMISSÃO 06: Verifica contagem de 1 a 10.\nMISSÃO 07: Verifica organização de números numa lista.\nMISSÃO 08: Verifica a exibição de primeiro e último nomes numa lista.\nMISSÃO 09: Verifica o dobro de um número.\nMISSÃO 10: Verifica contagem de letras de um nome.')
-
 escolha_missao = None
 
 while escolha_missao != 0:
-    escolha_missao = int(input('Escolha a missão que deseja realizar (1 a 10), ou digite "0" para SAIR:   '))
+    while True:
+        print('\nMISSÃO 01: Verifica aprovação do aluno.\nMISSÃO 02: Verifica situação eleitoral do aluno.\nMISSÃO 03: Verificação da classificação da nota dos alunos.\nMISSÃO 04: Verifica soma de números.\nMISSÃO 05: Verifica acesso ao cofre.\nMISSÃO 06: Verifica contagem de 1 a 10.\nMISSÃO 07: Verifica organização de números numa lista.\nMISSÃO 08: Verifica a exibição de primeiro e último nomes numa lista.\nMISSÃO 09: Verifica o dobro de um número.\nMISSÃO 10: Verifica contagem de letras de um nome.')
+
+        try:
+            entrada = input('Escolha a missão que deseja realizar (1 a 10), ou digite "0" para SAIR:   ')
+            numero_entrada = float(entrada)
+            
+            if numero_entrada.is_integer():
+                escolha_missao = int(numero_entrada)
+                break
+            else:
+                print('DADOS INVÁLIDOS! Digite um número inteiro.')
+
+        except ValueError:
+            print('ESCOLHA INVÁLIDA! Digite um número válido.')
 
     while escolha_missao not in range(0,11):
         escolha_missao = int(input('ESCOLHA INVÁLIDA: Escolha a missão que deseja realizar (1 a 10), ou digite "0" para SAIR:   '))
@@ -17,7 +29,12 @@ while escolha_missao != 0:
         continuar='S'
 
         while continuar == 'S':
-            nota_aluno = float(input('Digite a nota do aluno:   '))
+            while True:
+                try:
+                    nota_aluno = float(input('Digite a nota do aluno:   '))
+                    break
+                except ValueError:
+                    print('NOTA INVÁLIDA! Digite um número válido.')
         
             if nota_aluno >= 5:
                 print(f'O aluno obteve nota {nota_aluno} e foi APROVADO!')
@@ -39,7 +56,12 @@ while escolha_missao != 0:
         continuar = 'S'
 
         while continuar == 'S':
-            idade_aluno = int(input('Digite a idade do aluno:   '))
+            while True:
+                try:
+                    idade_aluno = float(input('Digite a idade do aluno:   '))
+                    break
+                except ValueError:
+                    print('IDADE INVÁLIDA! Digite um número válido.')
 
             if idade_aluno>= 16:
                 print(f'O aluno possui {idade_aluno} anos e está HABILITADO para votar!')
@@ -61,7 +83,12 @@ while escolha_missao != 0:
         continuar = 'S'
 
         while continuar == 'S':
-            nota_aluno2 = int(input('Digite a nota do aluno que deseja consultar (0 a 100):   '))
+            while True:
+                try:
+                    nota_aluno2 = float(input('Digite a nota do aluno que deseja consultar (0 a 100):   '))
+                    break
+                except ValueError:
+                    print('NOTA INVÁLIDA! Digite um número válido.')
 
             while nota_aluno2 > 100 or nota_aluno2 < 0:
                 nota_aluno2 = int(input('NOTA INVÁLIDA! Digite a nota do aluno que deseja consultar (0 a 100):   '))
@@ -92,8 +119,19 @@ while escolha_missao != 0:
         continuar = 'S'
 
         while continuar == 'S':
-            num1 = float(input('Digite um primeiro número:   '))
-            num2 = float(input('Digite um segundo número para ser somado ao primeiro:   '))
+            while True:
+                try:
+                    num1 = float(input('Digite um primeiro número:   '))
+                    break
+                except ValueError:
+                    print('DADOS INVÁLIDOS! Digite um número válido.')
+
+            while True:
+                try:
+                    num2 = float(input('Digite um segundo número para ser somado ao primeiro:   '))
+                    break
+                except ValueError:
+                    print('DADOS INVÁLIDOS! Digite um número válido.')
 
             print(f'O número {num1} somado ao número {num2} resulta em {num1 + num2}.')
 
@@ -210,7 +248,13 @@ while escolha_missao != 0:
         continuar = 'S'
 
         while continuar == 'S':
-            numero = float(input('Digite um número que deseja saber o seu dobro:   '))
+            while True:
+                try:
+                    numero = float(input('Digite um número que deseja saber o seu dobro:   '))
+                    break
+                except ValueError:
+                    print('DADOS INVÁLIDOS! Digite um número válido.')
+
             print(f'O dobro do número {numero} é {numero*2}.')
         
             continuar = input('Deseja ver a lista de alunos novamente? Digite "S" para SIM e "N" para NÃO.   ').upper()
@@ -243,9 +287,6 @@ while escolha_missao != 0:
                 print('MISSÃO 10 CONCLUÍDA!')
                 print('================================================================')
 
-    print('\nMISSÃO 01: Verifica aprovação do aluno.\nMISSÃO 02: Verifica situação eleitoral do aluno.\nMISSÃO 03: Verificação da classificação da nota dos alunos.\nMISSÃO 04: Verifica soma de números.\nMISSÃO 05: Verifica acesso ao cofre.\nMISSÃO 06: Verifica contagem de 1 a 10.\nMISSÃO 07: Verifica organização de números numa lista.\nMISSÃO 08: Verifica a exibição de primeiro e último nomes numa lista.\nMISSÃO 09: Verifica o dobro de um número.\nMISSÃO 10: Verifica contagem de letras de um nome.')
-
-    escolha_missao = int(input('Escolha a missão que deseja realizar (1 a 10), ou digite "0" para SAIR:   '))
     
 print('SAINDO DO MENU DE MISSÕES... ATÉ A PRÓXIMA!')          
         
